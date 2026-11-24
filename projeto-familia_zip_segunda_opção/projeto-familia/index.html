@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Mapa mental interativo sobre a família: conceitos, tipos, parentesco, evolução, funções e desafios atuais.">
+  <title>Família — Uma sociedade, diferentes famílias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== PÁGINA INICIAL ===================== -->
+  <main id="home" class="home-screen" aria-label="Página inicial">
+    <div class="home-overlay" aria-hidden="true"></div>
+
+    <header class="home-top">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">⌂</span><span>Família</span></div>
+      <div class="top-note">Conhecer a família é compreender a sociedade.</div>
+    </header>
+
+    <div class="home-center">
+      <div class="hero-copy">
+        <p class="eyebrow">ÁREA DE INTEGRAÇÃO · GPSI</p>
+        <h1>FAMÍLIA</h1>
+        <p class="hero-sub">Uma sociedade, diferentes famílias.</p>
+        <button id="startButton" class="start-button" type="button">
+          <span class="start-label">INICIAR</span>
+          <span class="start-arrow" aria-hidden="true">›</span>
+        </button>
+      </div>
+    </div>
+
+    <footer class="home-foot" aria-hidden="true">
+      <span class="scroll-hint">Mapa mental interativo</span>
+    </footer>
+  </main>
+
+  <!-- ===================== ECRÃ DO MAPA ===================== -->
+  <main id="mapScreen" class="map-screen hidden" aria-label="Mapa mental da família">
+    <header class="map-header">
+      <div class="brand dark-brand"><span class="brand-icon" aria-hidden="true">⌂</span><span>FAMÍLIA</span></div>
+      <div class="header-actions">
+        <button id="expandAll" class="toolbar-button" type="button">Expandir tudo</button>
+        <button id="collapseAll" class="toolbar-button" type="button">Recolher tudo</button>
+        <button id="recenter" class="toolbar-button" type="button">Recentrar</button>
+        <button id="openQuiz" class="toolbar-button quiz-button" type="button">Quiz</button>
+        <button id="backHome" class="toolbar-button home-button" type="button">Página inicial</button>
+      </div>
+    </header>
+
+    <div class="map-body">
+
+      <!-- Painel lateral de definições (escondido por defeito) -->
+      <aside id="definitionPanel" class="definition-panel hidden" aria-live="polite">
+        <div class="panel-head">
+          <span class="panel-kicker">DEFINIÇÃO</span>
+          <button id="closePanel" class="panel-close" type="button" aria-label="Fechar painel">✕</button>
+        </div>
+        <div class="panel-rule"></div>
+        <div id="definitionContent" class="panel-content"></div>
+        <div class="panel-footer">MAPA MENTAL INTERATIVO <span>AI · GPSI</span></div>
+      </aside>
+
+      <!-- Área do mapa -->
+      <section class="map-area">
+        <div id="viewport" class="viewport">
+          <svg id="connectors" class="connectors"></svg>
+          <div id="stage" class="stage"></div>
+        </div>
+
+        <!-- Controlos de zoom -->
+        <div class="zoom-controls">
+          <button id="zoomIn" class="zoom-btn" type="button" aria-label="Aproximar">+</button>
+          <button id="zoomOut" class="zoom-btn" type="button" aria-label="Afastar">−</button>
+        </div>
+
+        <!-- Legenda -->
+        <div class="map-legend">
+          <span><i class="dot root"></i> Centro</span>
+          <span><i class="dot topic"></i> Tópicos</span>
+          <span><i class="dot sub"></i> Subtemas</span>
+        </div>
+
+        <!-- Dica de navegação -->
+        <div class="map-hint" id="mapHint">Clica em <strong>FAMÍLIA</strong> para começar · Arrasta para mover · Roda do rato para zoom</div>
+
+        <!-- Botão flutuante VER DEFINIÇÃO -->
+        <div id="seeDefBar" class="see-def-bar hidden">
+          <span id="seeDefLabel" class="see-def-label"></span>
+          <button id="seeDefBtn" class="see-def-btn" type="button">VER DEFINIÇÃO</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===================== QUIZ FINAL ===================== -->
+  <div id="quizModal" class="quiz-modal hidden" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <section class="quiz-card">
+      <header class="quiz-head">
+        <div>
+          <p class="quiz-kicker">QUIZ FINAL</p>
+          <h2 id="quizTitle">Tipos e funções da família</h2>
+        </div>
+        <button id="closeQuiz" class="panel-close" type="button" aria-label="Fechar quiz">✕</button>
+      </header>
+      <div class="quiz-progress"><div id="quizProgressBar" class="quiz-progress-bar"></div></div>
+      <p id="quizCounter" class="quiz-counter"></p>
+      <div id="quizBody"></div>
+    </section>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script src="js/visuals.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
